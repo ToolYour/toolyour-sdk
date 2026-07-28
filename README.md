@@ -104,6 +104,10 @@ try {
 }
 ```
 
+## License
+
+MIT — see [LICENSE](./LICENSE). This license applies to the **client library** only. Using the ToolYour API and MCP service is subject to [ToolYour’s terms](https://www.toolyour.com) and your plan quota.
+
 ## Links
 
 - [Developer docs](https://www.toolyour.com/developers/docs)
