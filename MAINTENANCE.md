@@ -1,5 +1,7 @@
 # Maintaining @toolyour/sdk (tool sync)
 
+**Published:** [`@toolyour/sdk` on npm](https://www.npmjs.com/package/@toolyour/sdk) · [GitHub](https://github.com/ToolYour/toolyour-sdk)
+
 This SDK stays aligned with the **private ToolYour platform** via a copy-and-generate pipeline. The server implementation stays closed source; the **route registry** is the public contract.
 
 ## Source of truth (private monorepo)
@@ -40,6 +42,8 @@ npm version patch
 git push --follow-tags
 npm publish --access public
 ```
+
+Requires npm **2FA** or a **granular access token with Bypass 2FA** (see npm account settings). After publish, verify: `npm view @toolyour/sdk version`.
 
 ## CI drift check (recommended)
 

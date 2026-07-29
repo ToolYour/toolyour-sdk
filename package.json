@@ -48,7 +48,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ToolYour/toolyour-sdk.git"
+    "url": "git+https://github.com/ToolYour/toolyour-sdk.git"
   },
   "homepage": "https://www.toolyour.com/developers",
   "bugs": {

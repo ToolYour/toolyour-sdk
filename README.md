@@ -7,6 +7,18 @@ Official **TypeScript/JavaScript client** for [ToolYour](https://www.toolyour.co
 [![npm version](https://img.shields.io/npm/v/@toolyour/sdk.svg)](https://www.npmjs.com/package/@toolyour/sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
+## Published package
+
+| | |
+|---|---|
+| **npm** | [`@toolyour/sdk`](https://www.npmjs.com/package/@toolyour/sdk) — `npm install @toolyour/sdk` |
+| **GitHub** | [ToolYour/toolyour-sdk](https://github.com/ToolYour/toolyour-sdk) |
+| **Current release** | `0.1.0` — 279 API operations synced from the ToolYour OpenAPI registry |
+| **API docs** | [toolyour.com/developers/docs](https://www.toolyour.com/developers/docs) |
+| **MCP setup** | [toolyour.com/developers/mcp](https://www.toolyour.com/developers/mcp) |
+
+This repository is the **open-source client only**. The ToolYour API and MCP server remain hosted at `api.toolyour.com`.
+
 ## Install
 
 ```bash
@@ -104,12 +116,9 @@ try {
 }
 ```
 
-## License
-
-MIT — see [LICENSE](./LICENSE). This license applies to the **client library** only. Using the ToolYour API and MCP service is subject to [ToolYour’s terms](https://www.toolyour.com) and your plan quota.
-
 ## Links
 
+- [npm: @toolyour/sdk](https://www.npmjs.com/package/@toolyour/sdk)
 - [Developer docs](https://www.toolyour.com/developers/docs)
 - [MCP quickstart](https://www.toolyour.com/developers/docs/mcp-quickstart)
 - [Pricing](https://www.toolyour.com/pricing)
@@ -117,4 +126,4 @@ MIT — see [LICENSE](./LICENSE). This license applies to the **client library**
 
 ## License
 
-MIT © [ToolYour](https://www.toolyour.com)
+MIT © [ToolYour](https://www.toolyour.com) — see [LICENSE](./LICENSE). Applies to the **client library** only; API/MCP usage is subject to ToolYour product terms and quota.
