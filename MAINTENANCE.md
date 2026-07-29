@@ -99,6 +99,8 @@ See [`../docs/PLATFORM-COUPLING.md`](../docs/PLATFORM-COUPLING.md) — row: **RE
 
 ## GitHub discovery (legitimate)
 
+See **[RELEASING.md](./RELEASING.md)** for tag → npm → GitHub Release flow and one-time trusted-publisher setup.
+
 - Keep README focused on MCP + SEO/security examples
 - `examples/cursor-mcp/` with copy-paste `mcp.json`
 - Link from [toolyour.com/developers](https://www.toolyour.com/developers)
