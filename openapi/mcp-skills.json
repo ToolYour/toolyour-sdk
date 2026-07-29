@@ -1,0 +1,154 @@
+{
+  "skills": [
+    {
+      "id": "content-quality",
+      "title": "Content Quality",
+      "category": "content",
+      "description": "Audit content structure, readability, and keyword signals for a URL.",
+      "operationIds": [
+        "contentOptimization",
+        "rankCheckerKeywords"
+      ]
+    },
+    {
+      "id": "content-refresh",
+      "title": "Content Refresh",
+      "category": "content",
+      "description": "Audit outdated content and suggest refresh using AI + SEO tools.",
+      "operationIds": [
+        "aiTextAi",
+        "contentOptimization"
+      ]
+    },
+    {
+      "id": "crawl-analysis",
+      "title": "Crawl Analysis",
+      "category": "seo",
+      "description": "Crawl URLs and produce a compact analysis for LLM consumption.",
+      "operationIds": [
+        "linkExtractor",
+        "internalLinking",
+        "seoAnalyze"
+      ]
+    },
+    {
+      "id": "developer-ship-checklist",
+      "title": "Developer Ship Checklist",
+      "category": "developer",
+      "description": "Pre-deploy gate combining security headers/TLS with mixed content, HTTP status, speed, and related SEO ship tools.",
+      "operationIds": [
+        "securityHeadersAnalyzer",
+        "sslTlsCertificateChecker",
+        "cookieSecurityAnalyzer",
+        "mixedContentChecker",
+        "httpStatusChecker",
+        "redirectChainAnalyzer",
+        "robotsTxtChecker",
+        "pageSpeedAnalyzer",
+        "seoChangeDiff",
+        "corsPolicyChecker",
+        "httpSecurityRedirectChecker",
+        "secretLeakScanner",
+        "dnsLookup",
+        "cspPolicyEvaluator",
+        "jwtSignatureVerifier",
+        "webhookSignatureVerifier"
+      ]
+    },
+    {
+      "id": "dns-email-security",
+      "title": "DNS and Email Security",
+      "category": "security",
+      "description": "Check SPF/DKIM/DMARC, general DNS records, and security.txt for a domain.",
+      "operationIds": [
+        "spfDkimDmarcChecker",
+        "dnsLookup",
+        "securityTxtChecker"
+      ]
+    },
+    {
+      "id": "document-pipeline",
+      "title": "Document Pipeline",
+      "category": "documents",
+      "description": "Convert documents and deliver download URLs for agent-safe file handoff.",
+      "operationIds": [
+        "docx_to_pdf"
+      ]
+    },
+    {
+      "id": "page-performance",
+      "title": "Page Performance",
+      "category": "seo",
+      "description": "Diagnose Core Web Vitals proxy metrics and prioritized fixes for a URL.",
+      "operationIds": [
+        "pageSpeedAnalyzer",
+        "seoAnalyze",
+        "socialMediaIntegration"
+      ]
+    },
+    {
+      "id": "secrets-and-auth-hygiene",
+      "title": "Secrets and Auth Hygiene",
+      "category": "security",
+      "description": "Scan pasted text for leaked secrets, decode/verify JWTs, check password strength, generate passwords/hashes/HMAC/bcrypt/Argon2, and verify webhook signatures.",
+      "operationIds": [
+        "secretLeakScanner",
+        "jwtDecoder",
+        "jwtSignatureVerifier",
+        "passwordStrengthChecker",
+        "securePasswordGenerator",
+        "hashGenerator",
+        "hmacGenerator",
+        "bcryptHashGenerator",
+        "webhookSignatureVerifier",
+        "piiScrub"
+      ]
+    },
+    {
+      "id": "seo-deploy-regression",
+      "title": "SEO Deploy Regression",
+      "category": "seo",
+      "description": "Post-deploy bulk URL scorecard and optional staging-vs-production SEO Change Diff.",
+      "operationIds": [
+        "bulkUrlSeoAuditor",
+        "seoChangeDiff"
+      ]
+    },
+    {
+      "id": "seo-site-audit",
+      "title": "SEO Site Audit",
+      "category": "seo",
+      "description": "Crawl a URL and run on-page SEO checks using API-backed ToolYour tools.",
+      "operationIds": [
+        "seoAnalyze",
+        "pageSpeedAnalyzer",
+        "bulkUrlSeoAuditor"
+      ]
+    },
+    {
+      "id": "social-preview",
+      "title": "Social Preview",
+      "category": "seo",
+      "description": "Audit Open Graph and Twitter Card tags for social link previews.",
+      "operationIds": [
+        "socialMediaIntegration"
+      ]
+    },
+    {
+      "id": "web-security-audit",
+      "title": "Web Security Audit",
+      "category": "security",
+      "description": "Audit a URL for security headers, TLS, cookies, and email auth using ToolYour API tools.",
+      "operationIds": [
+        "securityHeadersAnalyzer",
+        "sslTlsCertificateChecker",
+        "cookieSecurityAnalyzer",
+        "spfDkimDmarcChecker",
+        "cspPolicyEvaluator",
+        "corsPolicyChecker",
+        "subresourceIntegrityChecker",
+        "securityTxtChecker"
+      ]
+    }
+  ]
+}

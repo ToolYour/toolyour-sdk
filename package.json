@@ -1,6 +1,6 @@
 {
   "name": "@toolyour/sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Official TypeScript client for the ToolYour API and MCP-backed tools — SEO, security, conversion, text, and more.",
   "license": "MIT",
   "type": "module",

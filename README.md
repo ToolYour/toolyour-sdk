@@ -13,7 +13,7 @@ Official **TypeScript/JavaScript client** for [ToolYour](https://www.toolyour.co
 |---|---|
 | **npm** | [`@toolyour/sdk`](https://www.npmjs.com/package/@toolyour/sdk) — `npm install @toolyour/sdk` |
 | **GitHub** | [ToolYour/toolyour-sdk](https://github.com/ToolYour/toolyour-sdk) |
-| **Current release** | `0.1.0` — 279 API operations synced from the ToolYour OpenAPI registry |
+| **Current release** | `0.1.1` — 279 API operations + MCP skills/workflows metadata |
 | **API docs** | [toolyour.com/developers/docs](https://www.toolyour.com/developers/docs) |
 | **MCP setup** | [toolyour.com/developers/mcp](https://www.toolyour.com/developers/mcp) |
 

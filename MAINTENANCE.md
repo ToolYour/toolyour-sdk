@@ -35,15 +35,30 @@ Commit:
 - `openapi/sync.lock.json` (SHA + timestamp)
 - `src/generated/routes.ts` + `namespaces.ts`
 
-Tag and publish:
+Tag, GitHub Release, and npm (linked):
+
+1. Bump `package.json` version (or `npm version patch|minor|major` — creates git tag `v0.1.2`).
+2. Commit generated files if `sync:generate` changed anything.
+3. Push branch **and** tag:
 
 ```powershell
-npm version patch
-git push --follow-tags
-npm publish --access public
+git push origin main
+git push origin v0.1.1
 ```
 
-Requires npm **2FA** or a **granular access token with Bypass 2FA** (see npm account settings). After publish, verify: `npm view @toolyour/sdk version`.
+4. GitHub Actions **Release** workflow (`.github/workflows/release.yml`) runs on `v*` tags:
+   - publishes `@toolyour/sdk@<version>` to npm with **provenance** (links tarball → GitHub commit)
+   - creates a **GitHub Release** from the same tag with auto-generated notes
+
+**One-time setup:** add repo secret `NPM_TOKEN` — npm granular token with **Publish** on `@toolyour/sdk` and **Bypass 2FA** if your org requires it. npm package page → **Repository** links to GitHub when `package.json` `repository.url` matches.
+
+Manual fallback (local):
+
+```powershell
+npm publish --access public --provenance
+```
+
+After publish, verify: `npm view @toolyour/sdk version` · [npm package](https://www.npmjs.com/package/@toolyour/sdk) · [GitHub Releases](https://github.com/ToolYour/toolyour-sdk/releases).
 
 ## CI drift check (recommended)
 
