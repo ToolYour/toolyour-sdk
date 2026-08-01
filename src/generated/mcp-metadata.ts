@@ -43,6 +43,16 @@ export const MCP_SKILLS: McpSkillMeta[] = [
     ]
   },
   {
+    "id": "content-ship",
+    "title": "Content Ship Local",
+    "category": "content",
+    "description": "Local HTML/content ship checklist without a deployed URL — free on-page analysis unless enhance:true.",
+    "operationIds": [
+      "contentOptimization",
+      "headlineRestructurer"
+    ]
+  },
+  {
     "id": "crawl-analysis",
     "title": "Crawl Analysis",
     "category": "seo",
@@ -145,6 +155,19 @@ export const MCP_SKILLS: McpSkillMeta[] = [
       "seoAnalyze",
       "pageSpeedAnalyzer",
       "bulkUrlSeoAuditor"
+    ]
+  },
+  {
+    "id": "ship-gate",
+    "title": "Ship Gate",
+    "category": "developer",
+    "description": "Pass/fail pre-deploy gate — headers, TLS, mixed content, HTTP status, and page speed.",
+    "operationIds": [
+      "securityHeadersAnalyzer",
+      "sslTlsCertificateChecker",
+      "mixedContentChecker",
+      "httpStatusChecker",
+      "pageSpeedAnalyzer"
     ]
   },
   {
@@ -413,6 +436,34 @@ export const MCP_WORKFLOWS: McpWorkflowMeta[] = [
     "id": "developer-ship-checklist-job",
     "title": "Developer Ship Checklist",
     "description": "Pre-deploy gate: security headers, TLS, mixed content, HTTP status, and page speed.",
+    "synthesizer": "developer-ship-checklist",
+    "steps": [
+      {
+        "id": "headers",
+        "operationId": "securityHeadersAnalyzer"
+      },
+      {
+        "id": "tls",
+        "operationId": "sslTlsCertificateChecker"
+      },
+      {
+        "id": "mixed",
+        "operationId": "mixedContentChecker"
+      },
+      {
+        "id": "status",
+        "operationId": "httpStatusChecker"
+      },
+      {
+        "id": "speed",
+        "operationId": "pageSpeedAnalyzer"
+      }
+    ]
+  },
+  {
+    "id": "ship-gate-job",
+    "title": "Ship Gate",
+    "description": "Pass/fail pre-deploy gate (alias of developer ship checklist): headers, TLS, mixed content, status, speed.",
     "synthesizer": "developer-ship-checklist",
     "steps": [
       {

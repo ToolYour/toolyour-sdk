@@ -21,6 +21,16 @@
       ]
     },
     {
+      "id": "content-ship",
+      "title": "Content Ship Local",
+      "category": "content",
+      "description": "Local HTML/content ship checklist without a deployed URL — free on-page analysis unless enhance:true.",
+      "operationIds": [
+        "contentOptimization",
+        "headlineRestructurer"
+      ]
+    },
+    {
       "id": "crawl-analysis",
       "title": "Crawl Analysis",
       "category": "seo",
@@ -123,6 +133,19 @@
         "seoAnalyze",
         "pageSpeedAnalyzer",
         "bulkUrlSeoAuditor"
+      ]
+    },
+    {
+      "id": "ship-gate",
+      "title": "Ship Gate",
+      "category": "developer",
+      "description": "Pass/fail pre-deploy gate — headers, TLS, mixed content, HTTP status, and page speed.",
+      "operationIds": [
+        "securityHeadersAnalyzer",
+        "sslTlsCertificateChecker",
+        "mixedContentChecker",
+        "httpStatusChecker",
+        "pageSpeedAnalyzer"
       ]
     },
     {
