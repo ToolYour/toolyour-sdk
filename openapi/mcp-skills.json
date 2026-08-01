@@ -86,6 +86,48 @@
       ]
     },
     {
+      "id": "fix-verify-core-web-vitals",
+      "title": "Fix-Verify Core Web Vitals",
+      "category": "seo",
+      "description": "Re-run CWV diagnosis after LCP/CLS/speed fixes; pair with verify_task.",
+      "operationIds": [
+        "pageSpeedAnalyzer",
+        "seoAnalyze",
+        "socialMediaIntegration"
+      ]
+    },
+    {
+      "id": "fix-verify-security-headers",
+      "title": "Fix-Verify Security Headers",
+      "category": "security",
+      "description": "Re-run security headers after CSP/HSTS/etc. fixes; pair with verify_task.",
+      "operationIds": [
+        "securityHeadersAnalyzer"
+      ]
+    },
+    {
+      "id": "fix-verify-ship-gate",
+      "title": "Fix-Verify Ship Gate",
+      "category": "developer",
+      "description": "Re-run the ship gate after deploy fixes and compare with verify_task.",
+      "operationIds": [
+        "securityHeadersAnalyzer",
+        "sslTlsCertificateChecker",
+        "mixedContentChecker",
+        "httpStatusChecker",
+        "pageSpeedAnalyzer"
+      ]
+    },
+    {
+      "id": "fix-verify-social-preview",
+      "title": "Fix-Verify Social Preview",
+      "category": "seo",
+      "description": "Re-run Open Graph / Twitter Card audit after tag fixes; pair with verify_task.",
+      "operationIds": [
+        "socialMediaIntegration"
+      ]
+    },
+    {
       "id": "page-performance",
       "title": "Page Performance",
       "category": "seo",
