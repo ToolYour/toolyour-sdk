@@ -119,12 +119,33 @@ export const MCP_SKILLS: McpSkillMeta[] = [
     ]
   },
   {
+    "id": "fix-verify-email-auth",
+    "title": "Fix-Verify Email Auth",
+    "category": "security",
+    "description": "Re-run SPF/DKIM/DMARC + DNS after email/DNS fixes; pair with verify_task.",
+    "operationIds": [
+      "spfDkimDmarcChecker",
+      "dnsLookup",
+      "securityTxtChecker"
+    ]
+  },
+  {
     "id": "fix-verify-security-headers",
     "title": "Fix-Verify Security Headers",
     "category": "security",
     "description": "Re-run security headers after CSP/HSTS/etc. fixes; pair with verify_task.",
     "operationIds": [
       "securityHeadersAnalyzer"
+    ]
+  },
+  {
+    "id": "fix-verify-seo-audit",
+    "title": "Fix-Verify SEO Audit",
+    "category": "seo",
+    "description": "Re-run full SEO + page speed audit after fixes; pair with verify_task.",
+    "operationIds": [
+      "seoAnalyze",
+      "pageSpeedAnalyzer"
     ]
   },
   {
