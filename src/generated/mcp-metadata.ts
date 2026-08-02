@@ -23,6 +23,20 @@ export interface McpWorkflowMeta {
 
 export const MCP_SKILLS: McpSkillMeta[] = [
   {
+    "id": "auth-token-hygiene",
+    "title": "Auth Token Hygiene",
+    "category": "security",
+    "description": "Decode pasted JWTs and scan surrounding text for leaked secrets; verify signatures/webhooks via invoke_tool.",
+    "operationIds": [
+      "jwtDecoder",
+      "secretLeakScanner",
+      "jwtSignatureVerifier",
+      "webhookSignatureVerifier",
+      "hmacGenerator",
+      "piiScrub"
+    ]
+  },
+  {
     "id": "content-quality",
     "title": "Content Quality",
     "category": "content",
@@ -130,6 +144,17 @@ export const MCP_SKILLS: McpSkillMeta[] = [
     ]
   },
   {
+    "id": "fix-verify-frontend-supply-chain",
+    "title": "Fix-Verify Frontend Supply Chain",
+    "category": "security",
+    "description": "Re-run SRI / mixed content / CORS after fixes; pair with verify_task.",
+    "operationIds": [
+      "subresourceIntegrityChecker",
+      "mixedContentChecker",
+      "corsPolicyChecker"
+    ]
+  },
+  {
     "id": "fix-verify-security-headers",
     "title": "Fix-Verify Security Headers",
     "category": "security",
@@ -171,6 +196,18 @@ export const MCP_SKILLS: McpSkillMeta[] = [
     ]
   },
   {
+    "id": "frontend-supply-chain",
+    "title": "Frontend Supply Chain",
+    "category": "security",
+    "description": "Check SRI, mixed content, and CORS for a public URL; paste CSP text into cspPolicyEvaluator separately.",
+    "operationIds": [
+      "subresourceIntegrityChecker",
+      "mixedContentChecker",
+      "corsPolicyChecker",
+      "cspPolicyEvaluator"
+    ]
+  },
+  {
     "id": "page-performance",
     "title": "Page Performance",
     "category": "seo",
@@ -185,7 +222,7 @@ export const MCP_SKILLS: McpSkillMeta[] = [
     "id": "secrets-and-auth-hygiene",
     "title": "Secrets and Auth Hygiene",
     "category": "security",
-    "description": "Scan pasted text for leaked secrets, decode/verify JWTs, check password strength, generate passwords/hashes/HMAC/bcrypt/Argon2, and verify webhook signatures.",
+    "description": "Scan pasted text for leaked secrets and decode JWT-shaped tokens; verify JWT/webhooks and generate hashes via invoke_tool.",
     "operationIds": [
       "secretLeakScanner",
       "jwtDecoder",
@@ -246,16 +283,16 @@ export const MCP_SKILLS: McpSkillMeta[] = [
     "id": "web-security-audit",
     "title": "Web Security Audit",
     "category": "security",
-    "description": "Audit a URL for security headers, TLS, cookies, and email auth using ToolYour API tools.",
+    "description": "Audit a URL for security headers, TLS, cookies, CORS, SRI, and security.txt using ToolYour API tools.",
     "operationIds": [
       "securityHeadersAnalyzer",
       "sslTlsCertificateChecker",
       "cookieSecurityAnalyzer",
-      "spfDkimDmarcChecker",
-      "cspPolicyEvaluator",
       "corsPolicyChecker",
       "subresourceIntegrityChecker",
-      "securityTxtChecker"
+      "securityTxtChecker",
+      "cspPolicyEvaluator",
+      "spfDkimDmarcChecker"
     ]
   }
 ];
@@ -466,7 +503,7 @@ export const MCP_WORKFLOWS: McpWorkflowMeta[] = [
   {
     "id": "full-security-audit",
     "title": "Full Security Audit",
-    "description": "Security headers, TLS certificate, and cookie flags for a URL; returns merged job report.",
+    "description": "Headers, TLS, cookies, CORS, SRI, and security.txt for a URL; returns merged job report. Paste CSP / email auth via related skills.",
     "synthesizer": "full-security-audit",
     "steps": [
       {
@@ -480,6 +517,43 @@ export const MCP_WORKFLOWS: McpWorkflowMeta[] = [
       {
         "id": "cookies",
         "operationId": "cookieSecurityAnalyzer"
+      },
+      {
+        "id": "cors",
+        "operationId": "corsPolicyChecker",
+        "continueOnError": true
+      },
+      {
+        "id": "sri",
+        "operationId": "subresourceIntegrityChecker",
+        "continueOnError": true
+      },
+      {
+        "id": "securityTxt",
+        "operationId": "securityTxtChecker",
+        "continueOnError": true
+      }
+    ]
+  },
+  {
+    "id": "frontend-supply-chain-job",
+    "title": "Frontend Supply Chain Check",
+    "description": "SRI, mixed content, and CORS for a public URL (CSP paste → cspPolicyEvaluator).",
+    "synthesizer": "frontend-supply-chain",
+    "steps": [
+      {
+        "id": "sri",
+        "operationId": "subresourceIntegrityChecker"
+      },
+      {
+        "id": "mixed",
+        "operationId": "mixedContentChecker",
+        "continueOnError": true
+      },
+      {
+        "id": "cors",
+        "operationId": "corsPolicyChecker",
+        "continueOnError": true
       }
     ]
   },
@@ -554,12 +628,34 @@ export const MCP_WORKFLOWS: McpWorkflowMeta[] = [
   {
     "id": "secrets-hygiene-job",
     "title": "Secrets Hygiene Scan",
-    "description": "Scan pasted env/config text for leaked secrets (JWT-shaped tokens: invoke jwtDecoder separately).",
+    "description": "Scan pasted env/config/logs for leaked secrets; decode JWT-shaped tokens when present.",
     "synthesizer": "secrets-hygiene",
     "steps": [
       {
         "id": "leak",
         "operationId": "secretLeakScanner"
+      },
+      {
+        "id": "jwt",
+        "operationId": "jwtDecoder",
+        "continueOnError": true
+      }
+    ]
+  },
+  {
+    "id": "auth-token-hygiene-job",
+    "title": "Auth Token Hygiene",
+    "description": "Decode pasted JWTs and scan surrounding text for leaked secrets (signature/webhook verify via invoke_tool).",
+    "synthesizer": "secrets-hygiene",
+    "steps": [
+      {
+        "id": "jwt",
+        "operationId": "jwtDecoder"
+      },
+      {
+        "id": "leak",
+        "operationId": "secretLeakScanner",
+        "continueOnError": true
       }
     ]
   },
