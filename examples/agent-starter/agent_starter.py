@@ -69,6 +69,7 @@ def main() -> None:
     print("=== solve_task (compact) ===")
     print(json.dumps(solve, indent=2)[:4000])
     print("\nNext: verify_task after you apply fixes.")
+    print("Async: solve_task/verify_task(async=True) → get_run → read resultStatus.")
 
 
 if __name__ == "__main__":

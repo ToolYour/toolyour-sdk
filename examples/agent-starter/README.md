@@ -31,6 +31,22 @@ solve_task(goal)          # compact jobReport by default
 verify_task(goal, baseline) after edits
 ```
 
+Or one helper (SDK `0.1.2+`):
+
+```typescript
+import { verifyUntilPass } from "@toolyour/sdk/mcp";
+
+const r = await verifyUntilPass({
+  apiKey: process.env.TOOLYOUR_API_KEY!,
+  goal: "ship gate for https://example.com",
+  input: { url: "https://example.com" },
+  applyFixes: async ({ remainingFixes }) => {
+    // apply remainingFixes in your host, then continue
+    return { continue: true };
+  },
+});
+```
+
 ## Example scripts
 
 - `index.mjs` — Node: initializes Streamable HTTP (`/mcp/http`), runs `plan_task` then `solve_task(compact)`
@@ -42,4 +58,5 @@ python agent_starter.py "check security headers for https://example.com"
 ```
 
 Docs: https://www.toolyour.com/developers/docs/mcp-quickstart  
-Playbooks: https://www.toolyour.com/developers/docs/mcp-playbooks
+Playbooks: https://www.toolyour.com/developers/docs/mcp-playbooks  
+CI: MCP `scripts/ci-ship-gate.mjs` + `examples/github-actions/ship-gate.yml`

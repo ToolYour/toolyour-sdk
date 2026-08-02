@@ -113,4 +113,7 @@ printToolResult("solve_task (compact)", solve.payload);
 console.log(
   "\nNext: apply fixes in your harness, then verify_task(goal, { baseline: previousReport })."
 );
+console.log(
+  "Async: solve_task/verify_task({ async: true }) → get_run(runId) → read resultStatus (not only status)."
+);
 console.log("Docs: https://www.toolyour.com/developers/docs/mcp-playbooks");

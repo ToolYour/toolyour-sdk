@@ -13,7 +13,7 @@ Official **TypeScript/JavaScript client** for [ToolYour](https://www.toolyour.co
 |---|---|
 | **npm** | [`@toolyour/sdk`](https://www.npmjs.com/package/@toolyour/sdk) — `npm install @toolyour/sdk` |
 | **GitHub** | [ToolYour/toolyour-sdk](https://github.com/ToolYour/toolyour-sdk) |
-| **Current release** | `0.1.1` — 279 API operations + MCP skills/workflows metadata |
+| **Current release** | `0.1.2` — MCP harness helpers (`verifyUntilPass`) + 279 API operations |
 | **API docs** | [toolyour.com/developers/docs](https://www.toolyour.com/developers/docs) |
 | **MCP setup** | [toolyour.com/developers/mcp](https://www.toolyour.com/developers/mcp) |
 
@@ -76,6 +76,30 @@ await invokeMcpTool(
   { apiKey: process.env.TOOLYOUR_API_KEY! }
 );
 ```
+
+### Harness loop (`verifyUntilPass`)
+
+For CI / thin agents that need `plan → solve → verify` until `delta.gate === "pass"`:
+
+```typescript
+import { verifyUntilPass } from "@toolyour/sdk/mcp";
+
+const result = await verifyUntilPass({
+  apiKey: process.env.TOOLYOUR_API_KEY!,
+  goal: "ship gate for https://preview.example.com",
+  input: { url: "https://preview.example.com" },
+  maxRounds: 3,
+  applyFixes: async ({ remainingFixes }) => {
+    // Host applies remainingFixes (edit, commit, redeploy), then continue
+    console.log(remainingFixes);
+    return { continue: true };
+  },
+});
+
+if (result.gate !== "pass") process.exit(1);
+```
+
+Does **not** replace the host agent — only the domain verify harness. See MCP docs `HARNESS-MIGRATION.md` and `CI-AGENT-LOOP.md`.
 
 Setup guide: [toolyour.com/developers/mcp](https://www.toolyour.com/developers/mcp)
 

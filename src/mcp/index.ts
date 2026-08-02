@@ -5,6 +5,28 @@ export {
 } from "./config.js";
 export { invokeMcpTool, mapOperationToMcpToolName } from "./invoke.js";
 export {
+  createMcpHttpSession,
+  parseMcpToolResult,
+  type McpHttpClientOptions,
+  type McpHttpSession,
+} from "./session.js";
+export {
+  verifyUntilPass,
+  planAndSolve,
+  extractJobReport,
+  extractVerifyDelta,
+  gateFromJobReport,
+  type VerifyUntilPassOptions,
+  type VerifyUntilPassResult,
+  type VerifyDelta,
+  type VerifyGate,
+  type RemainingFix,
+  type VerifyNextAction,
+  type ApplyFixesContext,
+  type ApplyFixesResult,
+  type JobReportLike,
+} from "./harness.js";
+export {
   MCP_SKILLS,
   MCP_WORKFLOWS,
   type McpSkillMeta,
