@@ -11,6 +11,8 @@ export interface McpSkillMeta {
 export interface McpWorkflowStepMeta {
   id: string;
   operationId: string;
+  continueOnError?: boolean;
+  inputFrom?: string;
 }
 
 export interface McpWorkflowMeta {
