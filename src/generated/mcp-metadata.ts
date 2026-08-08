@@ -25,6 +25,15 @@ export interface McpWorkflowMeta {
 
 export const MCP_SKILLS: McpSkillMeta[] = [
   {
+    "id": "ai-overview-readiness",
+    "title": "AI Overview Readiness",
+    "category": "seo",
+    "description": "Structural GEO / AI Overview extractability heuristics — not live AIO rank.",
+    "operationIds": [
+      "aiOverviewReadinessChecker"
+    ]
+  },
+  {
     "id": "auth-token-hygiene",
     "title": "Auth Token Hygiene",
     "category": "security",
@@ -80,6 +89,17 @@ export const MCP_SKILLS: McpSkillMeta[] = [
     ]
   },
   {
+    "id": "crawl-readiness",
+    "title": "Crawl Readiness",
+    "category": "seo",
+    "description": "robots.txt, sitemap XML, and redirect-chain hygiene for launch/index readiness.",
+    "operationIds": [
+      "robotsTxtChecker",
+      "sitemapXmlValidator",
+      "redirectChainAnalyzer"
+    ]
+  },
+  {
     "id": "developer-ship-checklist",
     "title": "Developer Ship Checklist",
     "category": "developer",
@@ -124,6 +144,15 @@ export const MCP_SKILLS: McpSkillMeta[] = [
     ]
   },
   {
+    "id": "fix-verify-ai-overview-readiness",
+    "title": "Fix-Verify AI Overview Readiness",
+    "category": "seo",
+    "description": "Re-run AI Overview readiness heuristics after fixes; not live AIO rank.",
+    "operationIds": [
+      "aiOverviewReadinessChecker"
+    ]
+  },
+  {
     "id": "fix-verify-core-web-vitals",
     "title": "Fix-Verify Core Web Vitals",
     "category": "seo",
@@ -132,6 +161,17 @@ export const MCP_SKILLS: McpSkillMeta[] = [
       "pageSpeedAnalyzer",
       "seoAnalyze",
       "socialMediaIntegration"
+    ]
+  },
+  {
+    "id": "fix-verify-crawl-readiness",
+    "title": "Fix-Verify Crawl Readiness",
+    "category": "seo",
+    "description": "Re-run crawl readiness after robots/sitemap/redirect fixes; pair with verify_task.",
+    "operationIds": [
+      "robotsTxtChecker",
+      "sitemapXmlValidator",
+      "redirectChainAnalyzer"
     ]
   },
   {
@@ -176,6 +216,16 @@ export const MCP_SKILLS: McpSkillMeta[] = [
     ]
   },
   {
+    "id": "fix-verify-seo-deploy-regression",
+    "title": "Fix-Verify SEO Deploy Regression",
+    "category": "seo",
+    "description": "Re-run post-deploy SEO scorecard after fixes; pair with verify_task.",
+    "operationIds": [
+      "bulkUrlSeoAuditor",
+      "seoChangeDiff"
+    ]
+  },
+  {
     "id": "fix-verify-ship-gate",
     "title": "Fix-Verify Ship Gate",
     "category": "developer",
@@ -189,12 +239,57 @@ export const MCP_SKILLS: McpSkillMeta[] = [
     ]
   },
   {
+    "id": "fix-verify-site-icons",
+    "title": "Fix-Verify Site Icons",
+    "category": "seo",
+    "description": "Re-run site icons audit after favicon/icon fixes; pair with verify_task.",
+    "operationIds": [
+      "siteIconsChecker"
+    ]
+  },
+  {
     "id": "fix-verify-social-preview",
     "title": "Fix-Verify Social Preview",
     "category": "seo",
     "description": "Re-run Open Graph / Twitter Card audit after tag fixes; pair with verify_task.",
     "operationIds": [
       "socialMediaIntegration"
+    ]
+  },
+  {
+    "id": "fix-verify-structured-data",
+    "title": "Fix-Verify Structured Data",
+    "category": "seo",
+    "description": "Re-run schema/meta/social audit after fixes; pair with verify_task.",
+    "operationIds": [
+      "schemaMarkupValidator",
+      "metaTagsAnalyzer",
+      "socialMediaIntegration"
+    ]
+  },
+  {
+    "id": "fix-verify-technical-seo",
+    "title": "Fix-Verify Technical SEO",
+    "category": "seo",
+    "description": "Re-run technical SEO audit after on-page/link/speed fixes; pair with verify_task.",
+    "operationIds": [
+      "seoAnalyze",
+      "linkExtractor",
+      "pageSpeedAnalyzer"
+    ]
+  },
+  {
+    "id": "fix-verify-web-security-audit",
+    "title": "Fix-Verify Web Security Audit",
+    "category": "security",
+    "description": "Re-run full security audit (headers, TLS, cookies, CORS, SRI, security.txt) after fixes; pair with verify_task.",
+    "operationIds": [
+      "securityHeadersAnalyzer",
+      "sslTlsCertificateChecker",
+      "cookieSecurityAnalyzer",
+      "corsPolicyChecker",
+      "subresourceIntegrityChecker",
+      "securityTxtChecker"
     ]
   },
   {
@@ -210,6 +305,30 @@ export const MCP_SKILLS: McpSkillMeta[] = [
     ]
   },
   {
+    "id": "full-seo-optimization",
+    "title": "Full SEO Optimization",
+    "category": "seo",
+    "description": "Deep SEO job — on-page, content, speed, internal links, link extract, and social preview for one URL.",
+    "operationIds": [
+      "seoAnalyze",
+      "contentOptimization",
+      "pageSpeedAnalyzer",
+      "internalLinking",
+      "linkExtractor",
+      "socialMediaIntegration"
+    ]
+  },
+  {
+    "id": "keyword-opportunity-review",
+    "title": "Keyword Opportunity Review",
+    "category": "seo",
+    "description": "Review keyword density and content optimization signals for a URL or pasted draft.",
+    "operationIds": [
+      "rankCheckerKeywords",
+      "contentOptimization"
+    ]
+  },
+  {
     "id": "page-performance",
     "title": "Page Performance",
     "category": "seo",
@@ -218,6 +337,19 @@ export const MCP_SKILLS: McpSkillMeta[] = [
       "pageSpeedAnalyzer",
       "seoAnalyze",
       "socialMediaIntegration"
+    ]
+  },
+  {
+    "id": "pr-preview-gate",
+    "title": "PR Preview Gate",
+    "category": "developer",
+    "description": "Pass/fail gate for preview/PR deploy URLs — same checks as ship-gate (headers, TLS, mixed content, status, speed).",
+    "operationIds": [
+      "securityHeadersAnalyzer",
+      "sslTlsCertificateChecker",
+      "mixedContentChecker",
+      "httpStatusChecker",
+      "pageSpeedAnalyzer"
     ]
   },
   {
@@ -260,6 +392,16 @@ export const MCP_SKILLS: McpSkillMeta[] = [
     ]
   },
   {
+    "id": "seo-staging-diff",
+    "title": "SEO Staging Diff",
+    "category": "seo",
+    "description": "Post-deploy bulk URL scorecard plus staging-vs-production SEO Change Diff in one playbook.",
+    "operationIds": [
+      "bulkUrlSeoAuditor",
+      "seoChangeDiff"
+    ]
+  },
+  {
     "id": "ship-gate",
     "title": "Ship Gate",
     "category": "developer",
@@ -273,12 +415,43 @@ export const MCP_SKILLS: McpSkillMeta[] = [
     ]
   },
   {
+    "id": "site-icons-audit",
+    "title": "Site Icons Audit",
+    "category": "seo",
+    "description": "Favicon, apple-touch, and common icon fallback reachability.",
+    "operationIds": [
+      "siteIconsChecker"
+    ]
+  },
+  {
     "id": "social-preview",
     "title": "Social Preview",
     "category": "seo",
     "description": "Audit Open Graph and Twitter Card tags for social link previews.",
     "operationIds": [
       "socialMediaIntegration"
+    ]
+  },
+  {
+    "id": "structured-data-audit",
+    "title": "Structured Data Audit",
+    "category": "seo",
+    "description": "Schema markup, meta tags, and social preview tags for a URL.",
+    "operationIds": [
+      "schemaMarkupValidator",
+      "metaTagsAnalyzer",
+      "socialMediaIntegration"
+    ]
+  },
+  {
+    "id": "technical-seo-audit",
+    "title": "Technical SEO Audit",
+    "category": "seo",
+    "description": "Mid-sprint technical SEO gate — on-page SEO, link extract, and page speed for one URL.",
+    "operationIds": [
+      "seoAnalyze",
+      "linkExtractor",
+      "pageSpeedAnalyzer"
     ]
   },
   {
@@ -678,6 +851,183 @@ export const MCP_WORKFLOWS: McpWorkflowMeta[] = [
       {
         "id": "securityTxt",
         "operationId": "securityTxtChecker"
+      }
+    ]
+  },
+  {
+    "id": "crawl-readiness-job",
+    "title": "Crawl Readiness",
+    "description": "robots.txt, sitemap XML, and redirect-chain hygiene for launch/index readiness.",
+    "synthesizer": "crawl-readiness",
+    "steps": [
+      {
+        "id": "robots",
+        "operationId": "robotsTxtChecker"
+      },
+      {
+        "id": "sitemap",
+        "operationId": "sitemapXmlValidator"
+      },
+      {
+        "id": "redirects",
+        "operationId": "redirectChainAnalyzer",
+        "continueOnError": true
+      }
+    ]
+  },
+  {
+    "id": "structured-data-audit-job",
+    "title": "Structured Data Audit",
+    "description": "Schema markup, meta tags, and social preview tags for a URL.",
+    "synthesizer": "structured-data-audit",
+    "steps": [
+      {
+        "id": "schema",
+        "operationId": "schemaMarkupValidator"
+      },
+      {
+        "id": "meta",
+        "operationId": "metaTagsAnalyzer"
+      },
+      {
+        "id": "social",
+        "operationId": "socialMediaIntegration",
+        "continueOnError": true
+      }
+    ]
+  },
+  {
+    "id": "ai-overview-readiness-job",
+    "title": "AI Overview Readiness",
+    "description": "Structural GEO / AI Overview extractability heuristics (not live AIO rank).",
+    "synthesizer": "ai-overview-readiness",
+    "steps": [
+      {
+        "id": "aio",
+        "operationId": "aiOverviewReadinessChecker"
+      }
+    ]
+  },
+  {
+    "id": "site-icons-audit-job",
+    "title": "Site Icons Audit",
+    "description": "Favicon, apple-touch, and common icon fallback reachability.",
+    "synthesizer": "site-icons-audit",
+    "steps": [
+      {
+        "id": "icons",
+        "operationId": "siteIconsChecker"
+      }
+    ]
+  },
+  {
+    "id": "campaign-tracking-setup-job",
+    "title": "Campaign Tracking Setup",
+    "description": "UTM builder, ads-platform UTM macros, and UTM parser hygiene.",
+    "synthesizer": "campaign-tracking",
+    "steps": [
+      {
+        "id": "utm",
+        "operationId": "utmBuilder"
+      },
+      {
+        "id": "adsUtm",
+        "operationId": "adsUtmBuilder",
+        "continueOnError": true
+      },
+      {
+        "id": "parse",
+        "operationId": "utmParser",
+        "continueOnError": true
+      }
+    ]
+  },
+  {
+    "id": "paid-ads-copy-gate-job",
+    "title": "Paid Ads Copy Gate",
+    "description": "Ads copy character limits plus Google RSA preview.",
+    "synthesizer": "paid-ads-copy-gate",
+    "steps": [
+      {
+        "id": "counter",
+        "operationId": "adsCopyCounter"
+      },
+      {
+        "id": "rsa",
+        "operationId": "googleAdsRsaPreview",
+        "continueOnError": true
+      }
+    ]
+  },
+  {
+    "id": "growth-unit-economics-job",
+    "title": "Growth Unit Economics",
+    "description": "ROAS, CPC, CTR, CPA, and CAC calculators in one job.",
+    "synthesizer": "growth-unit-economics",
+    "steps": [
+      {
+        "id": "roas",
+        "operationId": "roasCalculator",
+        "continueOnError": true
+      },
+      {
+        "id": "cpc",
+        "operationId": "cpcCalculator",
+        "continueOnError": true
+      },
+      {
+        "id": "ctr",
+        "operationId": "ctrCalculator",
+        "continueOnError": true
+      },
+      {
+        "id": "cpa",
+        "operationId": "cpaCalculator",
+        "continueOnError": true
+      },
+      {
+        "id": "cac",
+        "operationId": "cacCalculator",
+        "continueOnError": true
+      }
+    ]
+  },
+  {
+    "id": "email-campaign-qa-job",
+    "title": "Email Campaign QA",
+    "description": "Subject-line tester and spam-word heuristics (not DNS deliverability).",
+    "synthesizer": "email-campaign-qa",
+    "steps": [
+      {
+        "id": "subject",
+        "operationId": "emailSubjectLineTester"
+      },
+      {
+        "id": "spam",
+        "operationId": "emailSpamWordChecker",
+        "continueOnError": true
+      }
+    ]
+  },
+  {
+    "id": "landing-conversion-check-job",
+    "title": "Landing Conversion Check",
+    "description": "CTA finder, form inventory, and marketing tag extractor for a URL.",
+    "synthesizer": "landing-conversion-check",
+    "steps": [
+      {
+        "id": "cta",
+        "operationId": "landingPageCtaFinder"
+      },
+      {
+        "id": "forms",
+        "operationId": "formFieldInventory",
+        "continueOnError": true
+      },
+      {
+        "id": "tags",
+        "operationId": "marketingTagExtractor",
+        "continueOnError": true
       }
     ]
   }

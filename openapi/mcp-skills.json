@@ -1,6 +1,15 @@
 {
   "skills": [
     {
+      "id": "ai-overview-readiness",
+      "title": "AI Overview Readiness",
+      "category": "seo",
+      "description": "Structural GEO / AI Overview extractability heuristics — not live AIO rank.",
+      "operationIds": [
+        "aiOverviewReadinessChecker"
+      ]
+    },
+    {
       "id": "auth-token-hygiene",
       "title": "Auth Token Hygiene",
       "category": "security",
@@ -56,6 +65,17 @@
       ]
     },
     {
+      "id": "crawl-readiness",
+      "title": "Crawl Readiness",
+      "category": "seo",
+      "description": "robots.txt, sitemap XML, and redirect-chain hygiene for launch/index readiness.",
+      "operationIds": [
+        "robotsTxtChecker",
+        "sitemapXmlValidator",
+        "redirectChainAnalyzer"
+      ]
+    },
+    {
       "id": "developer-ship-checklist",
       "title": "Developer Ship Checklist",
       "category": "developer",
@@ -100,6 +120,15 @@
       ]
     },
     {
+      "id": "fix-verify-ai-overview-readiness",
+      "title": "Fix-Verify AI Overview Readiness",
+      "category": "seo",
+      "description": "Re-run AI Overview readiness heuristics after fixes; not live AIO rank.",
+      "operationIds": [
+        "aiOverviewReadinessChecker"
+      ]
+    },
+    {
       "id": "fix-verify-core-web-vitals",
       "title": "Fix-Verify Core Web Vitals",
       "category": "seo",
@@ -108,6 +137,17 @@
         "pageSpeedAnalyzer",
         "seoAnalyze",
         "socialMediaIntegration"
+      ]
+    },
+    {
+      "id": "fix-verify-crawl-readiness",
+      "title": "Fix-Verify Crawl Readiness",
+      "category": "seo",
+      "description": "Re-run crawl readiness after robots/sitemap/redirect fixes; pair with verify_task.",
+      "operationIds": [
+        "robotsTxtChecker",
+        "sitemapXmlValidator",
+        "redirectChainAnalyzer"
       ]
     },
     {
@@ -152,6 +192,16 @@
       ]
     },
     {
+      "id": "fix-verify-seo-deploy-regression",
+      "title": "Fix-Verify SEO Deploy Regression",
+      "category": "seo",
+      "description": "Re-run post-deploy SEO scorecard after fixes; pair with verify_task.",
+      "operationIds": [
+        "bulkUrlSeoAuditor",
+        "seoChangeDiff"
+      ]
+    },
+    {
       "id": "fix-verify-ship-gate",
       "title": "Fix-Verify Ship Gate",
       "category": "developer",
@@ -165,12 +215,57 @@
       ]
     },
     {
+      "id": "fix-verify-site-icons",
+      "title": "Fix-Verify Site Icons",
+      "category": "seo",
+      "description": "Re-run site icons audit after favicon/icon fixes; pair with verify_task.",
+      "operationIds": [
+        "siteIconsChecker"
+      ]
+    },
+    {
       "id": "fix-verify-social-preview",
       "title": "Fix-Verify Social Preview",
       "category": "seo",
       "description": "Re-run Open Graph / Twitter Card audit after tag fixes; pair with verify_task.",
       "operationIds": [
         "socialMediaIntegration"
+      ]
+    },
+    {
+      "id": "fix-verify-structured-data",
+      "title": "Fix-Verify Structured Data",
+      "category": "seo",
+      "description": "Re-run schema/meta/social audit after fixes; pair with verify_task.",
+      "operationIds": [
+        "schemaMarkupValidator",
+        "metaTagsAnalyzer",
+        "socialMediaIntegration"
+      ]
+    },
+    {
+      "id": "fix-verify-technical-seo",
+      "title": "Fix-Verify Technical SEO",
+      "category": "seo",
+      "description": "Re-run technical SEO audit after on-page/link/speed fixes; pair with verify_task.",
+      "operationIds": [
+        "seoAnalyze",
+        "linkExtractor",
+        "pageSpeedAnalyzer"
+      ]
+    },
+    {
+      "id": "fix-verify-web-security-audit",
+      "title": "Fix-Verify Web Security Audit",
+      "category": "security",
+      "description": "Re-run full security audit (headers, TLS, cookies, CORS, SRI, security.txt) after fixes; pair with verify_task.",
+      "operationIds": [
+        "securityHeadersAnalyzer",
+        "sslTlsCertificateChecker",
+        "cookieSecurityAnalyzer",
+        "corsPolicyChecker",
+        "subresourceIntegrityChecker",
+        "securityTxtChecker"
       ]
     },
     {
@@ -186,6 +281,30 @@
       ]
     },
     {
+      "id": "full-seo-optimization",
+      "title": "Full SEO Optimization",
+      "category": "seo",
+      "description": "Deep SEO job — on-page, content, speed, internal links, link extract, and social preview for one URL.",
+      "operationIds": [
+        "seoAnalyze",
+        "contentOptimization",
+        "pageSpeedAnalyzer",
+        "internalLinking",
+        "linkExtractor",
+        "socialMediaIntegration"
+      ]
+    },
+    {
+      "id": "keyword-opportunity-review",
+      "title": "Keyword Opportunity Review",
+      "category": "seo",
+      "description": "Review keyword density and content optimization signals for a URL or pasted draft.",
+      "operationIds": [
+        "rankCheckerKeywords",
+        "contentOptimization"
+      ]
+    },
+    {
       "id": "page-performance",
       "title": "Page Performance",
       "category": "seo",
@@ -194,6 +313,19 @@
         "pageSpeedAnalyzer",
         "seoAnalyze",
         "socialMediaIntegration"
+      ]
+    },
+    {
+      "id": "pr-preview-gate",
+      "title": "PR Preview Gate",
+      "category": "developer",
+      "description": "Pass/fail gate for preview/PR deploy URLs — same checks as ship-gate (headers, TLS, mixed content, status, speed).",
+      "operationIds": [
+        "securityHeadersAnalyzer",
+        "sslTlsCertificateChecker",
+        "mixedContentChecker",
+        "httpStatusChecker",
+        "pageSpeedAnalyzer"
       ]
     },
     {
@@ -236,6 +368,16 @@
       ]
     },
     {
+      "id": "seo-staging-diff",
+      "title": "SEO Staging Diff",
+      "category": "seo",
+      "description": "Post-deploy bulk URL scorecard plus staging-vs-production SEO Change Diff in one playbook.",
+      "operationIds": [
+        "bulkUrlSeoAuditor",
+        "seoChangeDiff"
+      ]
+    },
+    {
       "id": "ship-gate",
       "title": "Ship Gate",
       "category": "developer",
@@ -249,12 +391,43 @@
       ]
     },
     {
+      "id": "site-icons-audit",
+      "title": "Site Icons Audit",
+      "category": "seo",
+      "description": "Favicon, apple-touch, and common icon fallback reachability.",
+      "operationIds": [
+        "siteIconsChecker"
+      ]
+    },
+    {
       "id": "social-preview",
       "title": "Social Preview",
       "category": "seo",
       "description": "Audit Open Graph and Twitter Card tags for social link previews.",
       "operationIds": [
         "socialMediaIntegration"
+      ]
+    },
+    {
+      "id": "structured-data-audit",
+      "title": "Structured Data Audit",
+      "category": "seo",
+      "description": "Schema markup, meta tags, and social preview tags for a URL.",
+      "operationIds": [
+        "schemaMarkupValidator",
+        "metaTagsAnalyzer",
+        "socialMediaIntegration"
+      ]
+    },
+    {
+      "id": "technical-seo-audit",
+      "title": "Technical SEO Audit",
+      "category": "seo",
+      "description": "Mid-sprint technical SEO gate — on-page SEO, link extract, and page speed for one URL.",
+      "operationIds": [
+        "seoAnalyze",
+        "linkExtractor",
+        "pageSpeedAnalyzer"
       ]
     },
     {

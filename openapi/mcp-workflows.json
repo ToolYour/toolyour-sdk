@@ -201,6 +201,97 @@
         { "id": "dns", "operationId": "dnsLookup" },
         { "id": "securityTxt", "operationId": "securityTxtChecker" }
       ]
+    },
+    {
+      "id": "crawl-readiness-job",
+      "title": "Crawl Readiness",
+      "description": "robots.txt, sitemap XML, and redirect-chain hygiene for launch/index readiness.",
+      "synthesizer": "crawl-readiness",
+      "steps": [
+        { "id": "robots", "operationId": "robotsTxtChecker" },
+        { "id": "sitemap", "operationId": "sitemapXmlValidator" },
+        { "id": "redirects", "operationId": "redirectChainAnalyzer", "continueOnError": true }
+      ]
+    },
+    {
+      "id": "structured-data-audit-job",
+      "title": "Structured Data Audit",
+      "description": "Schema markup, meta tags, and social preview tags for a URL.",
+      "synthesizer": "structured-data-audit",
+      "steps": [
+        { "id": "schema", "operationId": "schemaMarkupValidator" },
+        { "id": "meta", "operationId": "metaTagsAnalyzer" },
+        { "id": "social", "operationId": "socialMediaIntegration", "continueOnError": true }
+      ]
+    },
+    {
+      "id": "ai-overview-readiness-job",
+      "title": "AI Overview Readiness",
+      "description": "Structural GEO / AI Overview extractability heuristics (not live AIO rank).",
+      "synthesizer": "ai-overview-readiness",
+      "steps": [{ "id": "aio", "operationId": "aiOverviewReadinessChecker" }]
+    },
+    {
+      "id": "site-icons-audit-job",
+      "title": "Site Icons Audit",
+      "description": "Favicon, apple-touch, and common icon fallback reachability.",
+      "synthesizer": "site-icons-audit",
+      "steps": [{ "id": "icons", "operationId": "siteIconsChecker" }]
+    },
+    {
+      "id": "campaign-tracking-setup-job",
+      "title": "Campaign Tracking Setup",
+      "description": "UTM builder, ads-platform UTM macros, and UTM parser hygiene.",
+      "synthesizer": "campaign-tracking",
+      "steps": [
+        { "id": "utm", "operationId": "utmBuilder" },
+        { "id": "adsUtm", "operationId": "adsUtmBuilder", "continueOnError": true },
+        { "id": "parse", "operationId": "utmParser", "continueOnError": true }
+      ]
+    },
+    {
+      "id": "paid-ads-copy-gate-job",
+      "title": "Paid Ads Copy Gate",
+      "description": "Ads copy character limits plus Google RSA preview.",
+      "synthesizer": "paid-ads-copy-gate",
+      "steps": [
+        { "id": "counter", "operationId": "adsCopyCounter" },
+        { "id": "rsa", "operationId": "googleAdsRsaPreview", "continueOnError": true }
+      ]
+    },
+    {
+      "id": "growth-unit-economics-job",
+      "title": "Growth Unit Economics",
+      "description": "ROAS, CPC, CTR, CPA, and CAC calculators in one job.",
+      "synthesizer": "growth-unit-economics",
+      "steps": [
+        { "id": "roas", "operationId": "roasCalculator", "continueOnError": true },
+        { "id": "cpc", "operationId": "cpcCalculator", "continueOnError": true },
+        { "id": "ctr", "operationId": "ctrCalculator", "continueOnError": true },
+        { "id": "cpa", "operationId": "cpaCalculator", "continueOnError": true },
+        { "id": "cac", "operationId": "cacCalculator", "continueOnError": true }
+      ]
+    },
+    {
+      "id": "email-campaign-qa-job",
+      "title": "Email Campaign QA",
+      "description": "Subject-line tester and spam-word heuristics (not DNS deliverability).",
+      "synthesizer": "email-campaign-qa",
+      "steps": [
+        { "id": "subject", "operationId": "emailSubjectLineTester" },
+        { "id": "spam", "operationId": "emailSpamWordChecker", "continueOnError": true }
+      ]
+    },
+    {
+      "id": "landing-conversion-check-job",
+      "title": "Landing Conversion Check",
+      "description": "CTA finder, form inventory, and marketing tag extractor for a URL.",
+      "synthesizer": "landing-conversion-check",
+      "steps": [
+        { "id": "cta", "operationId": "landingPageCtaFinder" },
+        { "id": "forms", "operationId": "formFieldInventory", "continueOnError": true },
+        { "id": "tags", "operationId": "marketingTagExtractor", "continueOnError": true }
+      ]
     }
   ]
 }

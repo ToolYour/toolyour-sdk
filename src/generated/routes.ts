@@ -66,6 +66,54 @@ export const OPERATIONS = {
     "fileField": "file",
     "responseFormat": "tempFileUrl"
   },
+  "abTestSampleSizeCalculator": {
+    "operationId": "abTestSampleSizeCalculator",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/ab-test-sample-size-calculator",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
+  "abTestSignificanceCalculator": {
+    "operationId": "abTestSignificanceCalculator",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/ab-test-significance-calculator",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
+  "adsCopyCounter": {
+    "operationId": "adsCopyCounter",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/ads-copy-counter",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
+  "adsUtmBuilder": {
+    "operationId": "adsUtmBuilder",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/ads-utm-builder",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
+  "aiAdHeadlineVariants": {
+    "operationId": "aiAdHeadlineVariants",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/ai-ad-headline-variants",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
+  "aiEmailSubjectVariants": {
+    "operationId": "aiEmailSubjectVariants",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/ai-email-subject-variants",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
   "aiFileInsights": {
     "operationId": "aiFileInsights",
     "method": "POST",
@@ -292,6 +340,14 @@ export const OPERATIONS = {
     "multipart": true,
     "fileField": "file",
     "responseFormat": "tempFileUrl"
+  },
+  "cacCalculator": {
+    "operationId": "cacCalculator",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/cac-calculator",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
   },
   "canonicalUrlChecker": {
     "operationId": "canonicalUrlChecker",
@@ -540,6 +596,30 @@ export const OPERATIONS = {
     "jsonBody": true,
     "responseFormat": "nodeEnvelope"
   },
+  "cpaCalculator": {
+    "operationId": "cpaCalculator",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/cpa-calculator",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
+  "cpcCalculator": {
+    "operationId": "cpcCalculator",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/cpc-calculator",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
+  "cpmCalculator": {
+    "operationId": "cpmCalculator",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/cpm-calculator",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
   "credit_note_calculator": {
     "operationId": "credit_note_calculator",
     "method": "POST",
@@ -606,6 +686,14 @@ export const OPERATIONS = {
     "multipart": true,
     "fileField": "csvFile",
     "responseFormat": "rawJson"
+  },
+  "ctrCalculator": {
+    "operationId": "ctrCalculator",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/ctr-calculator",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
   },
   "currency_converter": {
     "operationId": "currency_converter",
@@ -752,6 +840,38 @@ export const OPERATIONS = {
     "namespace": "ebook",
     "responseFormat": "supportedConversionsFlat"
   },
+  "emailLinkExtractor": {
+    "operationId": "emailLinkExtractor",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/email-link-extractor",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
+  "emailSpamWordChecker": {
+    "operationId": "emailSpamWordChecker",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/email-spam-word-checker",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
+  "emailSubjectLineTester": {
+    "operationId": "emailSubjectLineTester",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/email-subject-line-tester",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
+  "emailUnsubscribeChecker": {
+    "operationId": "emailUnsubscribeChecker",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/email-unsubscribe-checker",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
   "emi_calculator": {
     "operationId": "emi_calculator",
     "method": "POST",
@@ -769,6 +889,14 @@ export const OPERATIONS = {
     "namespace": "units",
     "jsonBody": true,
     "responseFormat": "nodeEnvelope"
+  },
+  "engagementRateCalculator": {
+    "operationId": "engagementRateCalculator",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/engagement-rate-calculator",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
   },
   "epub_to_azw": {
     "operationId": "epub_to_azw",
@@ -908,6 +1036,16 @@ export const OPERATIONS = {
     "fileField": "file",
     "responseFormat": "tempFileUrl"
   },
+  "formFieldInventory": {
+    "operationId": "formFieldInventory",
+    "method": "GET",
+    "path": "/api/v1/marketing-apis/form-field-inventory",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "queryParams": [
+      "url"
+    ]
+  },
   "freelancer_hourly_rate_calculator": {
     "operationId": "freelancer_hourly_rate_calculator",
     "method": "POST",
@@ -925,6 +1063,14 @@ export const OPERATIONS = {
     "namespace": "units",
     "jsonBody": true,
     "responseFormat": "nodeEnvelope"
+  },
+  "googleAdsRsaPreview": {
+    "operationId": "googleAdsRsaPreview",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/google-ads-rsa-preview",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
   },
   "gst_calculator": {
     "operationId": "gst_calculator",
@@ -1262,6 +1408,16 @@ export const OPERATIONS = {
     "namespace": "security",
     "jsonBody": true
   },
+  "landingPageCtaFinder": {
+    "operationId": "landingPageCtaFinder",
+    "method": "GET",
+    "path": "/api/v1/marketing-apis/landing-page-cta-finder",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "queryParams": [
+      "url"
+    ]
+  },
   "length_converter": {
     "operationId": "length_converter",
     "method": "POST",
@@ -1300,6 +1456,24 @@ export const OPERATIONS = {
     "queryParams": [
       "url"
     ]
+  },
+  "marketingTagExtractor": {
+    "operationId": "marketingTagExtractor",
+    "method": "GET",
+    "path": "/api/v1/marketing-apis/marketing-tag-extractor",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "queryParams": [
+      "url"
+    ]
+  },
+  "marketingToolsCatalog": {
+    "operationId": "marketingToolsCatalog",
+    "method": "GET",
+    "path": "/api/v1/marketing-apis/catalog",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "noAuth": true
   },
   "markup_calculator": {
     "operationId": "markup_calculator",
@@ -1787,6 +1961,14 @@ export const OPERATIONS = {
     "jsonBody": true,
     "responseFormat": "nodeEnvelope"
   },
+  "qrCodeGenerator": {
+    "operationId": "qrCodeGenerator",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/qr-code-generator",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
   "random_word_generator": {
     "operationId": "random_word_generator",
     "method": "POST",
@@ -1929,6 +2111,14 @@ export const OPERATIONS = {
     "namespace": "text",
     "jsonBody": true,
     "responseFormat": "nodeEnvelope"
+  },
+  "roasCalculator": {
+    "operationId": "roasCalculator",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/roas-calculator",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
   },
   "robotsTxtChecker": {
     "operationId": "robotsTxtChecker",
@@ -2102,6 +2292,16 @@ export const OPERATIONS = {
     "jsonBody": true,
     "responseFormat": "nodeEnvelope"
   },
+  "siteIconsChecker": {
+    "operationId": "siteIconsChecker",
+    "method": "GET",
+    "path": "/api/v1/seo-apis/site-icons-checker",
+    "tag": "SEO APIs",
+    "namespace": "seo",
+    "queryParams": [
+      "url"
+    ]
+  },
   "sitemapXmlValidator": {
     "operationId": "sitemapXmlValidator",
     "method": "GET",
@@ -2120,6 +2320,22 @@ export const OPERATIONS = {
     "namespace": "textIntelligence",
     "jsonBody": true,
     "responseFormat": "pythonEnvelope"
+  },
+  "socialCaptionCounter": {
+    "operationId": "socialCaptionCounter",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/social-caption-counter",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
+  "socialImageSizeValidator": {
+    "operationId": "socialImageSizeValidator",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/social-image-size-validator",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
   },
   "socialMediaIntegration": {
     "operationId": "socialMediaIntegration",
@@ -2365,6 +2581,38 @@ export const OPERATIONS = {
     "multipart": true,
     "fileField": "file",
     "responseFormat": "tempFileUrl"
+  },
+  "utmBuilder": {
+    "operationId": "utmBuilder",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/utm-builder",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
+  "utmBulkBuilder": {
+    "operationId": "utmBulkBuilder",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/utm-bulk-builder",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
+  "utmNamingConventionChecker": {
+    "operationId": "utmNamingConventionChecker",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/utm-naming-convention-checker",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
+  },
+  "utmParser": {
+    "operationId": "utmParser",
+    "method": "POST",
+    "path": "/api/v1/marketing-apis/utm-parser",
+    "tag": "Marketing APIs",
+    "namespace": "other",
+    "jsonBody": true
   },
   "vat_calculator": {
     "operationId": "vat_calculator",
@@ -2674,7 +2922,7 @@ export const OPERATIONS = {
 } as const satisfies Record<string, OperationDefinition>;
 
 export type OperationId = keyof typeof OPERATIONS;
-export const OPERATION_COUNT = 279;
+export const OPERATION_COUNT = 309;
 
 export const NAMESPACES = [
   "ai",
@@ -2685,6 +2933,7 @@ export const NAMESPACES = [
   "ebook",
   "extract",
   "office",
+  "other",
   "security",
   "seo",
   "text",
