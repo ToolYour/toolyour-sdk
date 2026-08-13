@@ -161,6 +161,14 @@ export const OPERATIONS = {
     "jsonBody": true,
     "responseFormat": "nodeEnvelope"
   },
+  "apiRequestBuilder": {
+    "operationId": "apiRequestBuilder",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/api-request-builder",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
   "apparent_power_converter": {
     "operationId": "apparent_power_converter",
     "method": "POST",
@@ -255,6 +263,14 @@ export const OPERATIONS = {
     "multipart": true,
     "fileField": "file",
     "responseFormat": "tempFileUrl"
+  },
+  "base64EncoderDecoder": {
+    "operationId": "base64EncoderDecoder",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/base64-encoder-decoder",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
   },
   "bcryptHashGenerator": {
     "operationId": "bcryptHashGenerator",
@@ -358,6 +374,14 @@ export const OPERATIONS = {
     "queryParams": [
       "url"
     ]
+  },
+  "colorConverter": {
+    "operationId": "colorConverter",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/color-converter",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
   },
   "comma_separate": {
     "operationId": "comma_separate",
@@ -629,12 +653,44 @@ export const OPERATIONS = {
     "jsonBody": true,
     "responseFormat": "nodeEnvelope"
   },
+  "cronExpressionGenerator": {
+    "operationId": "cronExpressionGenerator",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/cron-expression-generator",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
+  "cronExpressionParser": {
+    "operationId": "cronExpressionParser",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/cron-expression-parser",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
   "cspPolicyEvaluator": {
     "operationId": "cspPolicyEvaluator",
     "method": "POST",
     "path": "/api/v1/security-apis/csp-policy-evaluator",
     "tag": "Security APIs",
     "namespace": "security",
+    "jsonBody": true
+  },
+  "cssFormatter": {
+    "operationId": "cssFormatter",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/css-formatter",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
+  "cssMinifier": {
+    "operationId": "cssMinifier",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/css-minifier",
+    "tag": "Developer APIs",
+    "namespace": "developer",
     "jsonBody": true
   },
   "csv_to_html": {
@@ -721,6 +777,14 @@ export const OPERATIONS = {
     "namespace": "calculators",
     "jsonBody": true,
     "responseFormat": "nodeEnvelope"
+  },
+  "developerToolsCatalog": {
+    "operationId": "developerToolsCatalog",
+    "method": "GET",
+    "path": "/api/v1/developer-apis/catalog",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "noAuth": true
   },
   "digital_converter": {
     "operationId": "digital_converter",
@@ -1236,6 +1300,32 @@ export const OPERATIONS = {
     "fileField": "file",
     "responseFormat": "tempFileUrl"
   },
+  "htmlFormatter": {
+    "operationId": "htmlFormatter",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/html-formatter",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
+  "httpHeadersChecker": {
+    "operationId": "httpHeadersChecker",
+    "method": "GET",
+    "path": "/api/v1/developer-apis/http-headers-checker",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "queryParams": [
+      "url"
+    ]
+  },
+  "httpHeadersCheckerPost": {
+    "operationId": "httpHeadersCheckerPost",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/http-headers-checker",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
   "httpSecurityRedirectChecker": {
     "operationId": "httpSecurityRedirectChecker",
     "method": "GET",
@@ -1333,6 +1423,14 @@ export const OPERATIONS = {
     "jsonBody": true,
     "responseFormat": "nodeEnvelope"
   },
+  "ipAddressTools": {
+    "operationId": "ipAddressTools",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/ip-address-tools",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
   "jargonBuster": {
     "operationId": "jargonBuster",
     "method": "POST",
@@ -1341,6 +1439,22 @@ export const OPERATIONS = {
     "namespace": "textIntelligence",
     "jsonBody": true,
     "responseFormat": "pythonEnvelope"
+  },
+  "jsFormatter": {
+    "operationId": "jsFormatter",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/js-formatter",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
+  "jsMinifier": {
+    "operationId": "jsMinifier",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/js-minifier",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
   },
   "json_to_csv": {
     "operationId": "json_to_csv",
@@ -1382,6 +1496,14 @@ export const OPERATIONS = {
     "fileField": "file",
     "responseFormat": "tempFileUrl"
   },
+  "jsonFormatter": {
+    "operationId": "jsonFormatter",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/json-formatter",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
   "jsonToCsv": {
     "operationId": "jsonToCsv",
     "method": "POST",
@@ -1392,12 +1514,68 @@ export const OPERATIONS = {
     "fileField": "jsonFile",
     "responseFormat": "tempFileUrl"
   },
+  "jsonToGoStruct": {
+    "operationId": "jsonToGoStruct",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/json-to-go-struct",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
+  "jsonToPython": {
+    "operationId": "jsonToPython",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/json-to-python",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
+  "jsonToTypescript": {
+    "operationId": "jsonToTypescript",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/json-to-typescript",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
+  "jsonToYaml": {
+    "operationId": "jsonToYaml",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/json-to-yaml",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
+  "jsonToZod": {
+    "operationId": "jsonToZod",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/json-to-zod",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
+  "jsonValidator": {
+    "operationId": "jsonValidator",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/json-validator",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
   "jwtDecoder": {
     "operationId": "jwtDecoder",
     "method": "POST",
     "path": "/api/v1/security-apis/jwt-decoder",
     "tag": "Security APIs",
     "namespace": "security",
+    "jsonBody": true
+  },
+  "jwtGenerator": {
+    "operationId": "jwtGenerator",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/jwt-generator",
+    "tag": "Developer APIs",
+    "namespace": "developer",
     "jsonBody": true
   },
   "jwtSignatureVerifier": {
@@ -2076,6 +2254,22 @@ export const OPERATIONS = {
       "url"
     ]
   },
+  "regexGenerator": {
+    "operationId": "regexGenerator",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/regex-generator",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
+  "regexTester": {
+    "operationId": "regexTester",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/regex-tester",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
   "remove_line_breaks": {
     "operationId": "remove_line_breaks",
     "method": "POST",
@@ -2392,6 +2586,22 @@ export const OPERATIONS = {
     "namespace": "security",
     "jsonBody": true
   },
+  "sqlFormatter": {
+    "operationId": "sqlFormatter",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/sql-formatter",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
+  "sqlValidator": {
+    "operationId": "sqlValidator",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/sql-validator",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
   "sslTlsCertificateChecker": {
     "operationId": "sslTlsCertificateChecker",
     "method": "GET",
@@ -2532,6 +2742,14 @@ export const OPERATIONS = {
     "jsonBody": true,
     "responseFormat": "nodeEnvelope"
   },
+  "timestampConverter": {
+    "operationId": "timestampConverter",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/timestamp-converter",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
   "txt_to_docx": {
     "operationId": "txt_to_docx",
     "method": "POST",
@@ -2582,6 +2800,22 @@ export const OPERATIONS = {
     "fileField": "file",
     "responseFormat": "tempFileUrl"
   },
+  "urlEncoderDecoder": {
+    "operationId": "urlEncoderDecoder",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/url-encoder-decoder",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
+  "userAgentParser": {
+    "operationId": "userAgentParser",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/user-agent-parser",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
   "utmBuilder": {
     "operationId": "utmBuilder",
     "method": "POST",
@@ -2612,6 +2846,14 @@ export const OPERATIONS = {
     "path": "/api/v1/marketing-apis/utm-parser",
     "tag": "Marketing APIs",
     "namespace": "other",
+    "jsonBody": true
+  },
+  "uuidGenerator": {
+    "operationId": "uuidGenerator",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/uuid-generator",
+    "tag": "Developer APIs",
+    "namespace": "developer",
     "jsonBody": true
   },
   "vat_calculator": {
@@ -2815,6 +3057,22 @@ export const OPERATIONS = {
     "fileField": "file",
     "responseFormat": "tempFileUrl"
   },
+  "xmlFormatter": {
+    "operationId": "xmlFormatter",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/xml-formatter",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
+  "yamlToJson": {
+    "operationId": "yamlToJson",
+    "method": "POST",
+    "path": "/api/v1/developer-apis/yaml-to-json",
+    "tag": "Developer APIs",
+    "namespace": "developer",
+    "jsonBody": true
+  },
   "youtube_caption_formatter": {
     "operationId": "youtube_caption_formatter",
     "method": "POST",
@@ -2922,13 +3180,14 @@ export const OPERATIONS = {
 } as const satisfies Record<string, OperationDefinition>;
 
 export type OperationId = keyof typeof OPERATIONS;
-export const OPERATION_COUNT = 309;
+export const OPERATION_COUNT = 341;
 
 export const NAMESPACES = [
   "ai",
   "archive",
   "calculators",
   "convertors",
+  "developer",
   "documents",
   "ebook",
   "extract",

@@ -1,9 +1,9 @@
 {
-  "syncedAt": "2026-08-08T06:55:43.270Z",
-  "registrySha256": "78a0c6b7f8031dea4a2e22ece9ed7a236afcf20815cbad5f00bc27277ce93f01",
-  "mcpManifestSha256": "cb8274863c11b3125b39db64caac99b0868b49e2e2f59e9c83222dbb5880e40e",
-  "mcpWorkflowsSha256": "2b2303cb073e27334beccc9a2d19e40be0bad12aef6f483db17b95d54ee48908",
-  "mcpSkillsSha256": "efb4e831f889ef573cd1a04f166c509248b8cb1dec4391c47bfa430b3a85e791",
+  "syncedAt": "2026-08-13T13:49:53.651Z",
+  "registrySha256": "63caf6df948e8eb2df4bc22efc77040620a13c73f320dbcfdcec2813388d64f9",
+  "mcpManifestSha256": "6d9e83c1f9a068f02521996e92c4464be97b8a36757108a75892a6dbdad1e426",
+  "mcpWorkflowsSha256": "8061e1bf2a1349860a65121614a54fa05d94c1613d3daea8400a51034d48593c",
+  "mcpSkillsSha256": "54b0bc0cca76e1f62ced012e35374f74f83679bbc591c45512da1331e17f8612",
   "platformPaths": {
     "registry": "docs/openapi/tool-routes.registry.mjs",
     "mcpManifest": "toolyour-mcp/registry/manifest.json",

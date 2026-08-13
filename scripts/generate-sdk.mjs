@@ -32,6 +32,7 @@ const TAG_TO_NAMESPACE = {
   "YouTube Tools": "youtube",
   "Text Intelligence": "textIntelligence",
   "AI Models": "ai",
+  "Developer APIs": "developer",
 };
 
 function toMethodName(operationId) {

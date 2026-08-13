@@ -100,6 +100,53 @@ export const MCP_SKILLS: McpSkillMeta[] = [
     ]
   },
   {
+    "id": "dev-auth-debug",
+    "title": "Dev Auth Debug",
+    "category": "developer",
+    "description": "Generate test JWTs, decode claims, and inspect request/header helpers for auth debugging.",
+    "operationIds": [
+      "jwtGenerator",
+      "jwtDecoder",
+      "httpHeadersChecker",
+      "httpHeadersCheckerPost",
+      "apiRequestBuilder",
+      "userAgentParser"
+    ]
+  },
+  {
+    "id": "dev-format-transform",
+    "title": "Dev Format Transform",
+    "category": "developer",
+    "description": "Convert YAML/JSON/XML and format HTML/CSS/JS/SQL for agent pipelines.",
+    "operationIds": [
+      "yamlToJson",
+      "jsonToYaml",
+      "jsonFormatter",
+      "xmlFormatter",
+      "htmlFormatter",
+      "cssFormatter",
+      "jsFormatter",
+      "sqlFormatter",
+      "sqlValidator"
+    ]
+  },
+  {
+    "id": "dev-json-pipeline",
+    "title": "Dev JSON Pipeline",
+    "category": "developer",
+    "description": "Validate and format JSON, then generate Zod or TypeScript types for agent codegen.",
+    "operationIds": [
+      "jsonValidator",
+      "jsonFormatter",
+      "jsonToZod",
+      "jsonToTypescript",
+      "jsonToGoStruct",
+      "jsonToPython",
+      "yamlToJson",
+      "jsonToYaml"
+    ]
+  },
+  {
     "id": "developer-ship-checklist",
     "title": "Developer Ship Checklist",
     "category": "developer",
@@ -1027,6 +1074,67 @@ export const MCP_WORKFLOWS: McpWorkflowMeta[] = [
       {
         "id": "tags",
         "operationId": "marketingTagExtractor",
+        "continueOnError": true
+      }
+    ]
+  },
+  {
+    "id": "dev-json-pipeline-job",
+    "title": "Dev JSON Pipeline",
+    "description": "Validate and format JSON, then generate a Zod schema.",
+    "synthesizer": "dev-json-pipeline",
+    "steps": [
+      {
+        "id": "validate",
+        "operationId": "jsonValidator"
+      },
+      {
+        "id": "format",
+        "operationId": "jsonFormatter",
+        "continueOnError": true
+      },
+      {
+        "id": "zod",
+        "operationId": "jsonToZod",
+        "continueOnError": true
+      }
+    ]
+  },
+  {
+    "id": "dev-auth-debug-job",
+    "title": "Dev Auth Debug",
+    "description": "Generate a test JWT and decode claims (signature not verified).",
+    "synthesizer": "dev-auth-debug",
+    "steps": [
+      {
+        "id": "generate",
+        "operationId": "jwtGenerator"
+      },
+      {
+        "id": "decode",
+        "operationId": "jwtDecoder",
+        "continueOnError": true
+      }
+    ]
+  },
+  {
+    "id": "dev-format-transform-job",
+    "title": "Dev Format Transform",
+    "description": "YAML→JSON, format JSON, and pretty-print XML for agent pipelines.",
+    "synthesizer": "dev-format-transform",
+    "steps": [
+      {
+        "id": "yaml",
+        "operationId": "yamlToJson"
+      },
+      {
+        "id": "format",
+        "operationId": "jsonFormatter",
+        "continueOnError": true
+      },
+      {
+        "id": "xml",
+        "operationId": "xmlFormatter",
         "continueOnError": true
       }
     ]

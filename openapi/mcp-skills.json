@@ -76,6 +76,53 @@
       ]
     },
     {
+      "id": "dev-auth-debug",
+      "title": "Dev Auth Debug",
+      "category": "developer",
+      "description": "Generate test JWTs, decode claims, and inspect request/header helpers for auth debugging.",
+      "operationIds": [
+        "jwtGenerator",
+        "jwtDecoder",
+        "httpHeadersChecker",
+        "httpHeadersCheckerPost",
+        "apiRequestBuilder",
+        "userAgentParser"
+      ]
+    },
+    {
+      "id": "dev-format-transform",
+      "title": "Dev Format Transform",
+      "category": "developer",
+      "description": "Convert YAML/JSON/XML and format HTML/CSS/JS/SQL for agent pipelines.",
+      "operationIds": [
+        "yamlToJson",
+        "jsonToYaml",
+        "jsonFormatter",
+        "xmlFormatter",
+        "htmlFormatter",
+        "cssFormatter",
+        "jsFormatter",
+        "sqlFormatter",
+        "sqlValidator"
+      ]
+    },
+    {
+      "id": "dev-json-pipeline",
+      "title": "Dev JSON Pipeline",
+      "category": "developer",
+      "description": "Validate and format JSON, then generate Zod or TypeScript types for agent codegen.",
+      "operationIds": [
+        "jsonValidator",
+        "jsonFormatter",
+        "jsonToZod",
+        "jsonToTypescript",
+        "jsonToGoStruct",
+        "jsonToPython",
+        "yamlToJson",
+        "jsonToYaml"
+      ]
+    },
+    {
       "id": "developer-ship-checklist",
       "title": "Developer Ship Checklist",
       "category": "developer",
