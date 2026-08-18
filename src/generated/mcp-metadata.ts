@@ -244,6 +244,16 @@ export const MCP_SKILLS: McpSkillMeta[] = [
     ]
   },
   {
+    "id": "fix-verify-frontend-webp",
+    "title": "Fix-verify Frontend WebP",
+    "category": "seo",
+    "description": "Re-run WebP conversion after the host replaces img/srcset assets.",
+    "operationIds": [
+      "pageSpeedAnalyzer",
+      "convertToWebp"
+    ]
+  },
+  {
     "id": "fix-verify-security-headers",
     "title": "Fix-Verify Security Headers",
     "category": "security",
@@ -352,6 +362,18 @@ export const MCP_SKILLS: McpSkillMeta[] = [
     ]
   },
   {
+    "id": "frontend-webp",
+    "title": "Frontend WebP",
+    "category": "seo",
+    "description": "Convert compressible page images to WebP and list img/srcset replacements for SEO.",
+    "operationIds": [
+      "pageSpeedAnalyzer",
+      "convertToWebp",
+      "folderToZip",
+      "zipExtract"
+    ]
+  },
+  {
     "id": "full-seo-optimization",
     "title": "Full SEO Optimization",
     "category": "seo",
@@ -384,6 +406,24 @@ export const MCP_SKILLS: McpSkillMeta[] = [
       "pageSpeedAnalyzer",
       "seoAnalyze",
       "socialMediaIntegration"
+    ]
+  },
+  {
+    "id": "pr-code-gate",
+    "title": "PR Code Gate",
+    "category": "developer",
+    "description": "Payload-first PR/ship check on workspace files — secrets scan plus format/validate via invoke_tool. Ask for a live URL only if the user wants link analysis.",
+    "operationIds": [
+      "secretLeakScanner",
+      "jwtDecoder",
+      "jsonValidator",
+      "jsonFormatter",
+      "yamlToJson",
+      "jsFormatter",
+      "htmlFormatter",
+      "cssFormatter",
+      "sqlValidator",
+      "xmlFormatter"
     ]
   },
   {
@@ -1135,6 +1175,23 @@ export const MCP_WORKFLOWS: McpWorkflowMeta[] = [
       {
         "id": "xml",
         "operationId": "xmlFormatter",
+        "continueOnError": true
+      }
+    ]
+  },
+  {
+    "id": "frontend-webp-job",
+    "title": "Frontend WebP Conversion",
+    "description": "Find compressible images on a URL, convert them to WebP, return img/srcset remainingFixes.",
+    "synthesizer": "frontend-webp",
+    "steps": [
+      {
+        "id": "speed",
+        "operationId": "pageSpeedAnalyzer"
+      },
+      {
+        "id": "convert",
+        "operationId": "convertToWebp",
         "continueOnError": true
       }
     ]

@@ -81,10 +81,12 @@ export const NAMESPACE_METHODS: Record<string, NamespaceMethod[]> = {
     { operationId: "convertToTiff", methodName: "convertToTiff" },
     { operationId: "convertToWebp", methodName: "convertToWebp" },
     { operationId: "csvToJson", methodName: "csvToJson" },
+    { operationId: "folderToZip", methodName: "folderToZip" },
     { operationId: "imageMetadata", methodName: "imageMetadata" },
     { operationId: "imageToBase64", methodName: "imageToBase64" },
     { operationId: "imageToPdf", methodName: "imageToPdf" },
     { operationId: "jsonToCsv", methodName: "jsonToCsv" },
+    { operationId: "zipExtract", methodName: "zipExtract" },
   ],
   "developer": [
     { operationId: "apiRequestBuilder", methodName: "apiRequestBuilder" },
@@ -504,6 +506,7 @@ export const METHOD_NAME_BY_OPERATION: Record<OperationId, string> = {
   "fb2_to_html": "fb2ToHtml",
   "fb2_to_pdf": "fb2ToPdf",
   "fb2_to_txt": "fb2ToTxt",
+  "folderToZip": "folderToZip",
   "formFieldInventory": "formFieldInventory",
   "freelancer_hourly_rate_calculator": "freelancerHourlyRateCalculator",
   "frequency_converter": "frequencyConverter",
@@ -727,4 +730,5 @@ export const METHOD_NAME_BY_OPERATION: Record<OperationId, string> = {
   "zip_to_gz": "zipToGz",
   "zip_to_rar": "zipToRar",
   "zip_to_tar": "zipToTar",
+  "zipExtract": "zipExtract",
 } as Record<OperationId, string>;

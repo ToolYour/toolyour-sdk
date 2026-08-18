@@ -122,6 +122,8 @@ export const toolGroups = [
       { method: "post", path: "/image-metadata", summary: "Read image metadata", operationId: "imageMetadata", multipart: true, fileField: "image", responseFormat: "rawJson" },
       { method: "post", path: "/csv-2-json", summary: "Convert CSV to JSON", operationId: "csvToJson", multipart: true, fileField: "csvFile", responseFormat: "rawJson" },
       { method: "post", path: "/json-2-csv", summary: "Convert JSON to CSV", operationId: "jsonToCsv", multipart: true, fileField: "jsonFile" },
+      { method: "post", path: "/folder-to-zip", summary: "Pack files or URLs into a ZIP", operationId: "folderToZip", multipart: true, fileField: "files" },
+      { method: "post", path: "/zip-extract", summary: "Extract a ZIP into downloadable files", operationId: "zipExtract", multipart: true, fileField: "file", responseFormat: "nodeEnvelope" },
     ].map(withTempFileDelivery),
   },
   {

@@ -1100,6 +1100,16 @@ export const OPERATIONS = {
     "fileField": "file",
     "responseFormat": "tempFileUrl"
   },
+  "folderToZip": {
+    "operationId": "folderToZip",
+    "method": "POST",
+    "path": "/api/v1/convertors/folder-to-zip",
+    "tag": "Convertors",
+    "namespace": "convertors",
+    "multipart": true,
+    "fileField": "files",
+    "responseFormat": "tempFileUrl"
+  },
   "formFieldInventory": {
     "operationId": "formFieldInventory",
     "method": "GET",
@@ -3177,10 +3187,20 @@ export const OPERATIONS = {
     "fileField": "file",
     "responseFormat": "tempFileUrl"
   },
+  "zipExtract": {
+    "operationId": "zipExtract",
+    "method": "POST",
+    "path": "/api/v1/convertors/zip-extract",
+    "tag": "Convertors",
+    "namespace": "convertors",
+    "multipart": true,
+    "fileField": "file",
+    "responseFormat": "nodeEnvelope"
+  },
 } as const satisfies Record<string, OperationDefinition>;
 
 export type OperationId = keyof typeof OPERATIONS;
-export const OPERATION_COUNT = 341;
+export const OPERATION_COUNT = 343;
 
 export const NAMESPACES = [
   "ai",
