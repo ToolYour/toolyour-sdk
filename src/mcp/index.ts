@@ -27,6 +27,16 @@ export {
   type JobReportLike,
 } from "./harness.js";
 export {
+  runFrozenChecks,
+  submitHmacHex,
+  treeHash,
+  fingerprint,
+  assertSafeCommand,
+  type RunFrozenChecksOptions,
+  type RunFrozenChecksResult,
+  type CheckRunResult,
+} from "./check-run.js";
+export {
   MCP_SKILLS,
   MCP_WORKFLOWS,
   type McpSkillMeta,

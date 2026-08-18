@@ -101,6 +101,18 @@ if (result.gate !== "pass") process.exit(1);
 
 Does **not** replace the host agent — only the domain verify harness. See MCP docs `HARNESS-MIGRATION.md` and `CI-AGENT-LOOP.md`.
 
+### Host check runner (`toolyour-check-run`)
+
+For control-plane jobs, the **host** runs frozen checks (tests/lint) and submits signed results. ToolYour does not execute `node --test`. Agents must not invent `check_submit` pass/fail.
+
+```bash
+npx toolyour-check-run --job <jobId> --cwd .
+```
+
+Env: `TOOLYOUR_API_KEY` or `MCP_API_KEY`, `CONTROL_PLANE_RUNNER_TOKEN`, `CONTROL_PLANE_SECRETS_DIR` (per-job nonce), `MCP_URL` (default local `http://127.0.0.1:3090/mcp/http`).
+
+The CLI only runs `Check.command` strings returned by `job_status`. Completion is still `decide()` on the server.
+
 Setup guide: [toolyour.com/developers/mcp](https://www.toolyour.com/developers/mcp)
 
 ## Namespaces
