@@ -1,0 +1,51 @@
+# Example for dogfooding this SDK checkout (workflow_dispatch only).
+# Copy the mcp package example into app repos:
+#   toolyour-mcp/examples/github-actions/control-plane-merge-gate.yml
+#
+# Not placed under .github/workflows — will not run on SDK pull requests.
+
+name: ToolYour control-plane merge gate (example)
+
+on:
+  workflow_dispatch:
+    inputs:
+      job_id:
+        description: "Control-plane job UUID"
+        required: true
+        type: string
+
+jobs:
+  merge-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Build CLI
+        run: |
+          npm ci
+          npm run build
+
+      - name: Run host checks (require verified)
+        env:
+          TOOLYOUR_API_KEY: ${{ secrets.TOOLYOUR_API_KEY }}
+          CONTROL_PLANE_RUNNER_TOKEN: ${{ secrets.CONTROL_PLANE_RUNNER_TOKEN }}
+          MCP_URL: ${{ vars.MCP_URL || 'http://127.0.0.1:3090/mcp/http' }}
+        run: |
+          node dist/cli/check-run.js \
+            --job "${{ inputs.job_id }}" \
+            --cwd . \
+            --require-verified
+
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: toolyour-control-plane-evidence
+          if-no-files-found: ignore
+          path: |
+            DECISION.json
+            EVIDENCE.json

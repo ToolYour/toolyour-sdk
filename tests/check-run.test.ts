@@ -34,6 +34,13 @@ describe("check-run helpers", () => {
     expect(failingNames(out)).toEqual(["adds two numbers"]);
   });
 
+  it("fingerprints Playwright list-reporter failures", () => {
+    const out =
+      "  1) [chromium] › e2e/smoke.spec.ts:4:1 › checkout › pays ────────\n";
+    expect(failingNames(out)[0]).toMatch(/smoke\.spec/);
+    expect(fingerprint("fail", 1, out)).toMatch(/^[0-9a-f]{64}$/);
+  });
+
   it("treeHash is stable for the same files", () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), "ty-tree-"));
     fs.mkdirSync(path.join(dir, "lib"));

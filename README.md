@@ -107,11 +107,15 @@ For control-plane jobs, the **host** runs frozen checks (tests/lint) and submits
 
 ```bash
 npx toolyour-check-run --job <jobId> --cwd .
+# CI merge gate (exit 1 unless job.state is verified):
+npx toolyour-check-run --job <jobId> --cwd . --require-verified
 ```
 
 Env: `TOOLYOUR_API_KEY` or `MCP_API_KEY`, `CONTROL_PLANE_RUNNER_TOKEN`, `CONTROL_PLANE_SECRETS_DIR` (per-job nonce), `MCP_URL` (default local `http://127.0.0.1:3090/mcp/http`).
 
-The CLI only runs `Check.command` strings returned by `job_status`. Completion is still `decide()` on the server.
+The CLI only runs `Check.command` strings returned by `job_status`. Completion is still `decide()` on the server. `--require-verified` is the merge gate: `continue` / `escalated` / `cancelled` fail CI. Writes `DECISION.json` and `EVIDENCE.json` (`toolyour.controlPlaneEvidence@1`, no runner secrets or log dumps). Optional frozen kind `playwright` uses a 120s timeout; ToolYour does not launch a browser.
+
+GitHub Action (opt-in, not a required check until you have a job id): composite `/.github/actions/control-plane-merge-gate` and copy-paste example in `examples/github-actions/control-plane-merge-gate.yml`. The bin is not npm-published until you tag a release — dogfood with `node dist/cli/check-run.js` after `npm run build`.
 
 Setup guide: [toolyour.com/developers/mcp](https://www.toolyour.com/developers/mcp)
 

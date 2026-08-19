@@ -37,6 +37,14 @@ export {
   type CheckRunResult,
 } from "./check-run.js";
 export {
+  mergeGateFromDecision,
+  buildEvidenceBlob,
+  CONTROL_PLANE_EVIDENCE_SCHEMA,
+  type MergeGateResult,
+  type ControlPlaneEvidence,
+  type EvidenceCheckResult,
+} from "./merge-gate.js";
+export {
   MCP_SKILLS,
   MCP_WORKFLOWS,
   type McpSkillMeta,

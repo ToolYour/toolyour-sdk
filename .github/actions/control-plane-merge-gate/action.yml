@@ -1,0 +1,83 @@
+name: ToolYour control-plane merge gate
+description: Run host frozen checks via toolyour-check-run and fail unless job.state is verified. Uploads DECISION.json and EVIDENCE.json. Does not replace the host agent.
+inputs:
+  job-id:
+    description: Control-plane job UUID
+    required: true
+  cwd:
+    description: Repo root that owns lib/tests (frozen check cwd)
+    required: false
+    default: "."
+  mcp-url:
+    description: Streamable HTTP MCP URL (default https://api.toolyour.com/mcp/http)
+    required: false
+    default: "https://api.toolyour.com/mcp/http"
+  api-key:
+    description: ToolYour API key (ty_…). Pass from secrets.
+    required: true
+  runner-token:
+    description: CONTROL_PLANE_RUNNER_TOKEN (host-only)
+    required: true
+  secrets-dir:
+    description: Directory with <jobId>.nonce
+    required: false
+    default: ""
+  cli-command:
+    description: Override runner (e.g. node dist/cli/check-run.js). Empty uses npx toolyour-check-run.
+    required: false
+    default: ""
+  evidence-dir:
+    description: Where to write DECISION.json and EVIDENCE.json (default cwd)
+    required: false
+    default: ""
+
+outputs:
+  evidence-dir:
+    description: Directory that contains DECISION.json and EVIDENCE.json
+    value: ${{ steps.run.outputs.evidence-dir }}
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: "22"
+
+    - name: Run frozen checks (require verified)
+      id: run
+      shell: bash
+      env:
+        TOOLYOUR_API_KEY: ${{ inputs.api-key }}
+        CONTROL_PLANE_RUNNER_TOKEN: ${{ inputs.runner-token }}
+        CONTROL_PLANE_SECRETS_DIR: ${{ inputs.secrets-dir }}
+        MCP_URL: ${{ inputs.mcp-url }}
+        JOB_ID: ${{ inputs.job-id }}
+        CHECK_CWD: ${{ inputs.cwd }}
+        EVIDENCE_DIR: ${{ inputs.evidence-dir }}
+        CLI_COMMAND: ${{ inputs.cli-command }}
+      run: |
+        set -euo pipefail
+        CWD="$(cd "${CHECK_CWD}" && pwd)"
+        OUT="${EVIDENCE_DIR:-$CWD}"
+        mkdir -p "$OUT"
+        OUT="$(cd "$OUT" && pwd)"
+        echo "evidence-dir=$OUT" >> "$GITHUB_OUTPUT"
+        if [ -n "$CLI_COMMAND" ]; then
+          CMD="$CLI_COMMAND"
+        elif [ -f "${GITHUB_ACTION_PATH}/../../../dist/cli/check-run.js" ]; then
+          CMD="node ${GITHUB_ACTION_PATH}/../../../dist/cli/check-run.js"
+        else
+          CMD="npx --yes toolyour-check-run"
+        fi
+        $CMD --job "$JOB_ID" --cwd "$CWD" --evidence-dir "$OUT" --require-verified
+
+    - name: Upload control-plane evidence
+      if: always() && steps.run.outputs.evidence-dir != ''
+      uses: actions/upload-artifact@v4
+      with:
+        name: toolyour-control-plane-evidence
+        if-no-files-found: ignore
+        path: |
+          ${{ steps.run.outputs.evidence-dir }}/DECISION.json
+          ${{ steps.run.outputs.evidence-dir }}/EVIDENCE.json

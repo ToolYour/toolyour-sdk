@@ -4,12 +4,14 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { createMcpHttpSession, type McpHttpClientOptions } from "./session.js";
+import { buildEvidenceBlob } from "./merge-gate.js";
 
 export type CheckRunStatus = "pass" | "fail" | "error";
 
 export type FrozenCheck = {
   id: string;
   command: string;
+  kind?: string;
 };
 
 export type CheckRunResult = {
@@ -45,6 +47,10 @@ export function failingNames(output: string): string[] {
   while ((m = re.exec(output))) names.add(m[1].trim());
   const xRe = /^\s*✖\s+(.+)$/gm;
   while ((m = xRe.exec(output))) names.add(m[1].trim());
+  const pwList = /^\s*\d+\)\s+(.+?)(?:\s[─-]{2,})?$/gm;
+  while ((m = pwList.exec(output))) names.add(m[1].trim());
+  const pwFail = /^\s*[✘×]\s+\d+\s+(.+)$/gm;
+  while ((m = pwFail.exec(output))) names.add(m[1].trim());
   return [...names].sort();
 }
 
@@ -65,7 +71,7 @@ export function fingerprint(
 
 export function treeHash(
   root: string,
-  dirs: string[] = ["lib", "tests"]
+  dirs: string[] = ["lib", "tests", "e2e"]
 ): string {
   const lines: string[] = [];
   for (const dir of dirs) {
@@ -90,7 +96,7 @@ export function excerpt(text: string): string {
 
 function assertionSnippet(output: string): string {
   const m = String(output || "").match(
-    /Expected values[\s\S]{0,240}|error: \|-[\s\S]{0,200}/
+    /Expected values[\s\S]{0,240}|error: \|-[\s\S]{0,200}|Error:\s+expect[\s\S]{0,200}/
   );
   return (m ? m[0] : "").replace(/\s+/g, " ").trim().slice(0, 400);
 }
@@ -212,6 +218,8 @@ export type RunFrozenChecksOptions = {
   timeoutMs?: number;
   fetch?: typeof fetch;
   writeDecision?: boolean;
+  evidenceDir?: string;
+  playwrightTimeoutMs?: number;
 };
 
 export type RunFrozenChecksResult = {
@@ -219,6 +227,7 @@ export type RunFrozenChecksResult = {
   results: CheckRunResult[];
   treeHash: string;
   gitSha?: string;
+  evidence?: ReturnType<typeof buildEvidenceBlob>;
 };
 
 /**
@@ -255,10 +264,13 @@ export async function runFrozenChecks(
     throw new Error("job_status returned no frozen checks");
   }
 
-  const timeoutMs = options.timeoutMs ?? 30_000;
+  const defaultTimeoutMs = options.timeoutMs ?? 30_000;
+  const playwrightTimeoutMs = options.playwrightTimeoutMs ?? 120_000;
   const results: CheckRunResult[] = [];
   for (const check of checks) {
     assertSafeCommand(check.command);
+    const timeoutMs =
+      check.kind === "playwright" ? playwrightTimeoutMs : defaultTimeoutMs;
     const ran = await runCommand(check.command, cwd, timeoutMs);
     const output = `${ran.stdout}\n${ran.stderr}`;
     let statusName: CheckRunStatus = "error";
@@ -304,13 +316,28 @@ export async function runFrozenChecks(
     results,
   });
 
+  const evidence = buildEvidenceBlob({
+    jobId,
+    decision,
+    results,
+    treeHash: tree,
+    gitSha: git,
+  });
+
   if (options.writeDecision !== false) {
+    const outDir = path.resolve(options.evidenceDir || cwd);
+    fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(
-      path.join(cwd, "DECISION.json"),
+      path.join(outDir, "DECISION.json"),
       `${JSON.stringify(decision, null, 2)}\n`,
+      "utf8"
+    );
+    fs.writeFileSync(
+      path.join(outDir, "EVIDENCE.json"),
+      `${JSON.stringify(evidence, null, 2)}\n`,
       "utf8"
     );
   }
 
-  return { decision, results, treeHash: tree, gitSha: git };
+  return { decision, results, treeHash: tree, gitSha: git, evidence };
 }
